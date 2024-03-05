@@ -1,6 +1,6 @@
 package com.example.lexicon.data.remote.dto
 
-data class Definition(
-    val definition: String,
-    val example: String,
+data class DefinitionDto(
+    val definition: String? = null,
+    val example: String? = null,
 )

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Lexicon</string>
+    <string name="can_t_get_result">Can\'t get Result.</string>
+</resources>
