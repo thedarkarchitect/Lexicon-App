@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Lexicon</string>
     <string name="can_t_get_result">Can\'t get Result.</string>
+    <string name="search_icon">search icon</string>
+    <string name="search_for_a_word">Search for a word</string>
+    <string name="definition">definition</string>
+    <string name="example">example</string>
 </resources>

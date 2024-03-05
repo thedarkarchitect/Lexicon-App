@@ -2,6 +2,7 @@ package com.example.lexicon.di
 
 import com.example.lexicon.data.remote.api.DictionaryApi
 import com.example.lexicon.data.repository.DictionaryRepositoryImpl
+import com.example.lexicon.domain.repository.DictionaryRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,5 +16,5 @@ abstract class RepositoryModule {
     @Singleton
     abstract fun bindDictionaryRepository(
         dictionaryRepositoryImpl: DictionaryRepositoryImpl
-    ): DictionaryApi
+    ): DictionaryRepository
 }
