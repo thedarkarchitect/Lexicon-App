@@ -16,7 +16,7 @@ fun WordItemDto.toWordItem() = WordItem (
 )
 
 fun MeaningDto.toMeaning() = Meaning(
-    definition = definitions?.get(0)?.let { definitionDtoToDefinition(it) },
+    definition = definitionDtoToDefinition(definitions?.get(0)),
     partOfSpeech = partOfSpeech ?: ""
 )
 

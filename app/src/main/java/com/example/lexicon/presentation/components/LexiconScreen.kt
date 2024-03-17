@@ -87,58 +87,62 @@ fun LexiconScreen(
             )
         }
     ) { paddingValues ->
-        Column(
-            modifier = modifier
-                .fillMaxWidth()
-                .padding(paddingValues)
-                .background(MaterialTheme.colorScheme.background)
-                .padding(horizontal = 30.dp)
-        ) {
-            state.wordItem?.let { wordItem ->
-                Spacer(modifier = modifier.height(20.dp))
-
-                Text(
-                    text = wordItem.word,
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.primary
-                )
-
-                Spacer(modifier = modifier.height(8.dp))
-
-                Text(
-                    text = wordItem.word,
-                    fontSize = 17.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.primary
-                )
-
-                Spacer(modifier = modifier.height(20.dp))
-            }
-
-            Box(
+        Box(
+            modifier = modifier.fillMaxSize()
+        ){
+            Column(
                 modifier = modifier
-                    .padding(top = 110.dp)
-                    .clip(
-                        RoundedCornerShape(
-                            topStart = 50.dp,
-                            topEnd = 50.dp
-                        )
-                    )
-                    .background(
-                        MaterialTheme.colorScheme.secondaryContainer.copy(0.7f)
-                    )
+                    .fillMaxWidth()
+                    .padding(paddingValues)
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(horizontal = 30.dp)
             ) {
-                if(state.isLoading) {
-                    CircularProgressIndicator(
-                        modifier = modifier
-                            .size(80.dp)
-                            .align(Alignment.Center),
+                state.wordItem?.let { wordItem ->
+                    Spacer(modifier = modifier.height(20.dp))
+
+                    Text(
+                        text = wordItem.word,
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.SemiBold,
                         color = MaterialTheme.colorScheme.primary
                     )
-                } else {
-                    state.wordItem?.let {
-                        WordResult(wordItem = it)
+
+                    Spacer(modifier = modifier.height(8.dp))
+
+                    Text(
+                        text = wordItem.phonetic,
+                        fontSize = 17.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+
+                    Spacer(modifier = modifier.height(20.dp))
+                }
+
+                Box(
+                    modifier = modifier
+                        .padding(top = 110.dp)
+                        .clip(
+                            RoundedCornerShape(
+                                topStart = 50.dp,
+                                topEnd = 50.dp
+                            )
+                        )
+                        .background(
+                            MaterialTheme.colorScheme.secondaryContainer.copy(0.7f)
+                        )
+                ) {
+                    if (state.isLoading) {
+                        CircularProgressIndicator(
+                            modifier = modifier
+                                .size(80.dp)
+                                .align(Alignment.Center),
+                            color = MaterialTheme.colorScheme.primary
+                        )
+                    } else {
+                        state.wordItem?.let {
+                            WordResult(wordItem = it)
+                        }
                     }
                 }
             }
@@ -172,9 +176,7 @@ fun Meaning(
     meaning: Meaning,
     index: Int
 ) {
-    Box(
-        modifier = modifier.fillMaxSize()
-    ){
+
         Column(
             modifier = modifier
                 .fillMaxWidth()
@@ -202,12 +204,12 @@ fun Meaning(
                     )
             )
 
-            if(meaning.definition?.definition?.isNotBlank() == true) {
+            if(meaning.definition.definition.isNotBlank()) {
                 Spacer(modifier = modifier.height(8.dp))
 
                 Row (
                     modifier = modifier
-                        .padding(start = 8.dp)
+                        .padding(horizontal = 8.dp)
                 ) {
                     Text(
                         text = stringResource(R.string.definition),
@@ -226,7 +228,7 @@ fun Meaning(
                 }
             }
 
-            if(meaning.definition?.example?.isNotBlank() == true) {
+            if(meaning.definition.example.isNotBlank()) {
                 Spacer(modifier = modifier.height(8.dp))
 
                 Row (
@@ -251,7 +253,7 @@ fun Meaning(
             }
         }
     }
-}
+
 
 
 @Preview

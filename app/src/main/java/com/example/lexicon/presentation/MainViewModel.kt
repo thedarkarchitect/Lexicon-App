@@ -23,6 +23,9 @@ class MainViewModel @Inject constructor(
     private var searchJob: Job? = null
 
     init {
+//        _mainState.update {
+//            it.copy(searchWord = "word")
+//        }
 
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
